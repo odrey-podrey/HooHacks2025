@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightslategray; 
+    font-family: "OCR A Std",
+    monospace; 
+    text-align: center; 
+    color:black
+}
+
+.container {
+    background-color: aliceblue;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    box-shadow: 0 0  10px rbga(0,0,0, 0.5);
+    border-radius: 10px;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 50px;
+}
+
+input {
+    padding: 10px;
+    border: 10px solid ccc;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 18px;
+    width: 40%;
+}
+
+button {
+    background-color: #b7c9b9;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 20%;
+    font-family: "OCR A Std",
+    monospace; 
+    font-size: 18px;
+    transition: background-color .1s
+    ease;
+}
+
+button:hover {
+    background-color: #9ead9f;
+}
+
+#user_zipcode {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
