@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<img src="tldrep.png" alt="test image" width="" height="100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tldRep</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Please enter your zip code:</h1>
-    <input id="user_zipcode"> <br> <br>
-    <button onclick = "findRep()"> Submit </button>
-    <h1 id="repInfo"> </h1>
+    <div class="container">
+        <h1>tldREP</h1>
+        <p> Be informed. Get the rundown of your representative. </p>
+        <b><p>Enter your zip code:</p></b>
+        <input id="user_zipcode"> <br> <br>
+        <button id = "submit">Submit</button>
+        <h1 id="repInfo"> </h1>
+    </div>
 
-    <style>
-        body {background-color: lightslategray; text-align: center; color:black}
-    </style>
-
-    <script>
-        function findRep() {
-            let user_zipcode = document.querySelector("#user_zipcode");
-            let repInfo = document.querySelector("#repInfo");
-
-            repInfo.innerHTML = "Your zip code is: " + user_zipcode.value;
-            
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
