@@ -3,15 +3,16 @@
 }
 
 body {
-    background-color:lightsteelblue; 
+    background-color:#fff6c9; 
+    /* */
     font-family: "OCR A Std",
     monospace; 
     text-align: center; 
-    color: #2355a6
+    color: black;
 }
 
 .container {
-    background-color: aliceblue;
+    background-color: #ffef9e;
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
