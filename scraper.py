@@ -38,49 +38,11 @@ def rep_from_zip(zip):
         html = lxml.html.fromstring(page.content)
         name = html.xpath("/html/body/div[2]/div/div[2]/section/div/div[2]/div[2]/div/div/p/a[1]")
         return(name[0].text)
-    if (len(zip) == 5):
-    
-        # Insantiate browser
-        br = mechanize.Browser()
-        br.set_handle_robots(False)
-
-        # Open lookup link
-        br.open("https://ziplook.house.gov/")
-
-        # Find form and input zipcode
-        br.select_form(nr=1)
-        br.form["ZIP"] = zip
-        br.submit()
-        
-        # Open URL
-        URL = br.geturl()  
-        page = requests.get(URL, headers={
-            "User-Agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"})
-
-        # Scrape HTML
-        html = lxml.html.fromstring(page.content)
-        name = html.xpath("/html/body/div[2]/div/div[2]/section/div/div[2]/div[2]/div/div/p/a[1]")
-        return(name[0].text)
-    
-    else:
-        return "invalid"
     
 def dist_party_from_zip(zip):
     
     # Insantiate browser
-    br = mechanize.Browser()
-    br.set_handle_robots(False)
-
-    # Open lookup link
-    br.open("https://ziplook.house.gov/")
-
-    # Find form and input zipcode
-    br.select_form(nr=1)
-    br.form["ZIP"] = zip
-    br.submit()
-    
-    # Open URL
-    URL = br.geturl()  
+    URL = from_zip(zip) 
     page = requests.get(URL, headers={
     "User-Agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"})
 
@@ -99,7 +61,8 @@ def dist_party_from_zip(zip):
             district = district + te + " "
         district = district[:-1]
         party = info[-4]
-        return party, district
+        image = "https://ziplook.house.gov/" + table.find_all("img")[0]['src']
+        return party, , image
         
         
     else:
@@ -109,5 +72,6 @@ def dist_party_from_zip(zip):
         dist = re.match("([^0-9]*)([0-9].*)", district).group(2)
         party = party = str.splitlines(info.text)[12]
         party = re.sub(r'[\t ]', "", party)
-        return party, dist
+        image = "https://ziplook.house.gov/" + table.find_all("img")[0]['src']
+        return party, dist[:-1], image
         
