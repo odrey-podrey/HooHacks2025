@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tldREP</title>
+    <title>REP-Rundown</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='content_style.css') }}">
 </head>
 <body>
@@ -19,11 +19,22 @@
             <h1 id="repInfo">{{ rep_name }}</h1>
         {% endif %}
         <img src=
-        {{image}} alt="rep image" style="border: 5px solid white;">
-        <p><b> <font size="5"> Political Party: {{party}}</font></b></p>
-        <p><b> <font size="5"> Congressional District: {{district}}</font></b></p>
-
+        {{image}} alt="rep image" height="250" width= "215" style="border: 10px solid #fff6c9;">
+        <p>
+            Political Party:
+            <span 
+                style="color: {% if party == 'Republican' %}red{% elif party == 'Democrat' %}blue{% else %}black{% endif %}; 
+                font-size: 20px">
+                <b>{{party}}</b>
+                <br>
+            </span> 
+            Congressional District: <b>{{district}}</b>
+        </p>
+        <div class="summary_info">
+            <p> {{rep_info}} </p>
+        </div>
     </div>
+
 
     <!--<script src="{{ url_for('static', filename='index.js') }}"></script>-->
 </body>

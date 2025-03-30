@@ -21,6 +21,16 @@ body {
     border-radius: 10px;
 }
 
+.summary_info {
+    background-color: #fff6c9;
+    max-width: 1000px;
+    min-height: 300px; 
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0  10px rbga(0,0,0, 0.5);
+    border-radius: 10px;
+}
+
 h1 {
     margin-top: 0;
     text-align: center;
