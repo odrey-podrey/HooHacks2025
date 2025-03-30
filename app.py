@@ -15,10 +15,11 @@ def home():
     print(party)
     print(district)
     print(image)
+    rep_info = scraper.gen_rep_info(rep_name)
 
 
     if rep_name != "invalid":
-        return render_template("informationTab.html", rep_name=rep_name, party=party, district=district, image=image)
+        return render_template("informationTab.html", rep_name=rep_name, party=party, district=district, image=image,rep_info=rep_info)
 
     return render_template("frontEnd.html", error="Invalid ZIP code.")
 
