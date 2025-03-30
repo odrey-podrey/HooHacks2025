@@ -6,18 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tldREP</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='content_style.css') }}">
 </head>
 <body>
     <div class="container">
         <h1 class="wave-text">
-            <span>t</span><span>l</span><span>d</span><span>R</span><span>E</span><span>P</span>
+            <span>t</span><span>l</span><span>;</span><span>d</span><span>R</span><span>E</span><span>P</span>
         </h1>
-        <p> Get informed. Get the rundown of your representative. </p>
+        <p> Too long, didn't read? Get informed. Get the rundown of your representative. </p>
+        <hr width="80%;" color=#381D2A size="1">
         {% if rep_name != "invalid" %}
-            <p> Your representative is: </p>
             <h1 id="repInfo">{{ rep_name }}</h1>
         {% endif %}
+        <img src=
+        "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Don_Beyer__official_114th_Congress_photo_portrait-7_fixed.jpeg"
+                    alt="don beyer" style="border: 5px solid white;">
+        <p><b> <font size="5"> Political Party: </font></b></p>
+        <p><b> <font size="5"> Congressional District: </font></b></p>
+
     </div>
 
     <!--<script src="{{ url_for('static', filename='index.js') }}"></script>-->
