@@ -109,5 +109,5 @@ def dist_party_from_zip(zip):
         dist = re.match("([^0-9]*)([0-9].*)", district).group(2)
         party = party = str.splitlines(info.text)[12]
         party = re.sub(r'[\t ]', "", party)
-        return party, district
+        return party, dist
         
