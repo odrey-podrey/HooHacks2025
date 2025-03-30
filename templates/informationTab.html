@@ -14,13 +14,9 @@
             <span>t</span><span>l</span><span>d</span><span>R</span><span>E</span><span>P</span>
         </h1>
         <p> Get informed. Get the rundown of your representative. </p>
-        <b><p>Enter your zip code:</p></b>
-        <form method = "post">
-            <input name="user_zipcode"> <br> <br>
-            <button type= "submit">Submit</button>
-        </form>
-        {% if error %}
-             <p style="color: red; font-weight: bold;">{{ error }}</p>
+        {% if rep_name != "invalid" %}
+            <p> Your representative is: </p>
+            <h1 id="repInfo">{{ rep_name }}</h1>
         {% endif %}
     </div>
 

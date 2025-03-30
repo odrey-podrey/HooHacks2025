@@ -13,7 +13,7 @@ body {
 
 .container {
     background-color: #ffef9e;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
     box-shadow: 0 0  10px rbga(0,0,0, 0.5);
@@ -60,4 +60,39 @@ button:hover {
     font-size: 24px;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.wave-text span {
+    display: inline-block;
+    font-size: 4rem;
+    animation: wave 4s ease 1;
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.wave-text span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+.wave-text span:nth-child(6) {
+    animation-delay: 1.0s;
+}
+
+
+@keyframes wave {
+    0%, 750% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
