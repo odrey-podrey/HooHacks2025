@@ -3,6 +3,8 @@ import lxml.html
 from bs4 import BeautifulSoup
 import mechanize
 import regex as re
+import google.generativeai as genai
+import config
 
 def from_zip(zip):
     if (len(zip) == 5):
@@ -74,4 +76,17 @@ def dist_party_from_zip(zip):
         party = re.sub(r'[\t ]', "", party)
         image = "https://ziplook.house.gov/" + table.find_all("img")[0]['src']
         return party, dist[:-1], image
-        
+
+def gen_rep_info(name):
+    genai.configure(api_key=config.api_key)
+    generation_config = {
+    "temperature": 0.9,
+    "top_p": 1,
+    "top_k": 1,
+    "max_output_tokens": 2048,    
+    }
+
+    model = genai.GenerativeModel(model_name="gemini-2.0-flash", generation_config=generation_config)
+    convo = model.start_chat(history = [])
+    convo.send_message(f"Give me the following information about representative {name[0].text} in bullet points: 1. Their three most recent key votes ordered by date (most recent to least recent) sourced from the representative's Ballotopedia.org \"key votes\" section in a numbered list format containing the vote name, whether the vote passed, whether whether the representative voted yay or nay for it, and the date of the vote. 2. If the representative serves on a house committee, and if so which ones. If not, return that the representative is not on any house committees. Source must be from Ballotopedia or the representative's house.gov website. 3. List the house committee in a numbered list and the relevant subcommittees under them in bullet points.3. One relevant fact about the representative  (one sentence)")
+    return convo.last.text
