@@ -62,7 +62,7 @@ def dist_party_from_zip(zip):
         district = district[:-1]
         party = info[-4]
         image = "https://ziplook.house.gov/" + table.find_all("img")[0]['src']
-        return party, , image
+        return party, district, image
         
         
     else:

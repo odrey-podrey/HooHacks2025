@@ -11,13 +11,14 @@ def home():
     zip_code = request.form.get("user_zipcode")
     rep_name = scraper.rep_from_zip(zip_code)
     print(rep_name)
-    party, district = scraper.dist_party_from_zip(zip_code)
+    party, district, image = scraper.dist_party_from_zip(zip_code)
     print(party)
     print(district)
+    print(image)
 
 
     if rep_name != "invalid":
-        return render_template("informationTab.html", rep_name=rep_name, party=party, district=district)
+        return render_template("informationTab.html", rep_name=rep_name, party=party, district=district, image=image)
 
     return render_template("frontEnd.html", error="Invalid ZIP code.")
 

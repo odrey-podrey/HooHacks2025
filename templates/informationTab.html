@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1 class="wave-text">
-            <span>t</span><span>l</span><span>;</span><span>d</span><span>R</span><span>E</span><span>P</span>
+            <span>R</span><span>E</span><span>P</span><span>-</span><span>R</span><span>u</span><span>n</span><span>d</span><span>o</span><span>w</span><span>n</span><span></span>
         </h1>
         <p> Too long, didn't read? Get informed. Get the rundown of your representative. </p>
         <hr width="80%;" color=#381D2A size="1">
@@ -19,8 +19,7 @@
             <h1 id="repInfo">{{ rep_name }}</h1>
         {% endif %}
         <img src=
-        "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Don_Beyer__official_114th_Congress_photo_portrait-7_fixed.jpeg"
-                    alt="don beyer" style="border: 5px solid white;">
+        {{image}} alt="rep image" style="border: 5px solid white;">
         <p><b> <font size="5"> Political Party: {{party}}</font></b></p>
         <p><b> <font size="5"> Congressional District: {{district}}</font></b></p>
 

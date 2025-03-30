@@ -89,6 +89,21 @@ button:hover {
 .wave-text span:nth-child(6) {
     animation-delay: 1.0s;
 }
+.wave-text span:nth-child(7) {
+    animation-delay: 1.2s;
+}
+.wave-text span:nth-child(8) {
+    animation-delay: 1.4s;
+}
+.wave-text span:nth-child(9) {
+    animation-delay: 1.6s;
+}
+.wave-text span:nth-child(10) {
+    animation-delay: 1.8s;
+}
+.wave-text span:nth-child(11) {
+    animation-delay: 2.0s;
+}
 
 
 
