@@ -1,6 +1,6 @@
 import requests
 import lxml.html
-import bs4 as BeautifulSoup
+from bs4 import BeautifulSoup
 import mechanize
 import regex as re
 
