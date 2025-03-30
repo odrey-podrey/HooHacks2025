@@ -45,7 +45,6 @@ def dist_party_from_zip(zip):
     
     # Insantiate browser
     URL = from_zip(zip) 
-    URL = from_zip(zip)
     if URL == "invalid":
         return URL 
     page = requests.get(URL, headers={
@@ -91,5 +90,5 @@ def gen_rep_info(name):
 
     model = genai.GenerativeModel(model_name="gemini-2.0-flash", generation_config=generation_config)
     convo = model.start_chat(history = [])
-    convo.send_message(f"Give me the following information about representative {name} in bullet points: 1. Their three most recent key votes ordered by date (most recent to least recent) sourced from the representative's Ballotopedia.org \"key votes\" section in a numbered list format containing the vote name, whether the vote passed, whether whether the representative voted yay or nay for it, and the date of the vote. 2. If the representative serves on a house committee, and if so which ones. If not, return that the representative is not on any house committees. Source must be from Ballotopedia or the representative's house.gov website. 3. List the house committee in a numbered list and the relevant subcommittees under them in bullet points.3. One relevant fact about the representative  (one sentence). Format everything as HTML.")
+    convo.send_message(f"Give me the following information about representative {name} in bullet points: 1. Their three most recent key votes ordered by date (most recent to least recent) sourced from the representative's Ballotopedia.org \"key votes\" section in a numbered list format containing the vote name, whether the vote passed, whether whether the representative voted yay or nay for it, and the date of the vote. 2. If the representative serves on a house committee, and if so which ones. If not, return that the representative is not on any house committees. Source must be from Ballotopedia or the representative's house.gov website. 3. List the house committee in a numbered list and the relevant subcommittees under them in bullet points.3. One relevant fact about the representative  (one sentence). do not include the word \"representative\" in front of the representative's name in the response. Format everything as HTML. Do not include extraneous strings or and anything besides what has been given in the instructions.")
     return convo.last.text
