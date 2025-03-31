@@ -90,5 +90,14 @@ def gen_rep_info(name):
 
     model = genai.GenerativeModel(model_name="gemini-2.0-flash", generation_config=generation_config)
     convo = model.start_chat(history = [])
-    convo.send_message(f"Give me the following information about representative {name} in bullet points: 1. Their three most recent key votes ordered by date (most recent to least recent) sourced from the representative's Ballotopedia.org \"key votes\" section in a numbered list format containing the vote name, whether the vote passed, whether whether the representative voted yay or nay for it, and the date of the vote. 2. If the representative serves on a house committee, and if so which ones. If not, return that the representative is not on any house committees. Source must be from Ballotopedia or the representative's house.gov website. 3. List the house committee in a numbered list and the relevant subcommittees under them in bullet points.3. One relevant fact about the representative  (one sentence). do not include the word \"representative\" in front of the representative's name in the response. Format everything as HTML. Do not include extraneous strings or and anything besides what has been given in the instructions.")
-    return convo.last.text
+    convo.send_message(f"""Do not provide any text in the beginning of this response that does not address this prompt directly.
+    Give me the following information about representative {name}. 
+     \n Their three most recent key votes ordered by date (most recent to least recent) sourced from the representative's 
+     Ballotopedia.org \"key votes\" section in a table format containing the vote name, whether the vote passed, whether 
+     the representative voted yay or nay for it, and the date of the vote. \n If the representative serves on a house committee, 
+     and if so which ones. List the house committees in a list and the relevant subcommittees under them. Do not use bullet points or numbers. If not, return that 
+     the representative is not on any house committees. Source must be from Ballotopedia or the representative's house.gov
+     website. \n One relevant fact about the representative  (one sentence). \n Make the answer very concise and readable for 
+     a middle school level. Format everything as HTML. Do not include a title, such as the representative's name, in the 
+     first line of your response. Directly provide the response. Please add a line citing sources at very the end. """)
+    return convo.last.text[8:-9]

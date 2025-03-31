@@ -20,8 +20,7 @@ def home():
 
     if rep_name != "invalid":
         return render_template("informationTab.html", rep_name=rep_name, party=party, district=district, image=image,rep_info=rep_info)
-
-    return render_template("frontEnd.html", error="Invalid ZIP code.")
+    return render_template("frontEnd.html",rep_name=rep_name)
 
 
 if __name__ == '__main__':

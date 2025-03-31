@@ -19,8 +19,8 @@
             <input name="user_zipcode"> <br> <br>
             <button type= "submit">Submit</button>
         </form>
-        {% if rep_name == "invalid" %}
-             <p style="color: red; font-weight: bold;">{{ error }}</p>
+        {% if rep_name != "invalid" %}
+             <p style="color: red; font-weight: bold;"></p>
         {% endif %}
     </div>
 
